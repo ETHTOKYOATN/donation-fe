@@ -7,7 +7,7 @@
         "@emotion/react": "^11.10.6",
         "@emotion/styled": "^11.10.6",
         "@mui/icons-material": "^5.11.16",
-        "@mui/material": "^5.12.0",
+        "@mui/material": "^5.11.16",
         "@react-loadable/revised": "^1.4.1",
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^13.0.0",
@@ -17,18 +17,20 @@
         "@types/react": "^18.0.0",
         "@types/react-dom": "^18.0.0",
         "@typescript-eslint/parser": "^5.58.0",
+        "env-cmd": "^10.1.0",
         "eslint": "^8.38.0",
         "eslint-config-prettier": "^8.8.0",
         "eslint-plugin-prettier": "^4.2.1",
         "prettier": "^2.8.7",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-router-dom": "5.3.0",
         "react-scripts": "5.0.1",
         "typescript": "^4.4.2",
         "web-vitals": "^2.1.0"
     },
     "scripts": {
-        "start": "env-cmd -f .env.development craco start",
+        "start": "env-cmd -f .env craco start",
         "build": "env-cmd -f .env.development craco build",
         "build:production": "env-cmd -f .env craco build",
         "test": "craco test",
@@ -53,6 +55,7 @@
         ]
     },
     "devDependencies": {
+        "@types/react-router-dom": "5.3.2",
         "craco-alias": "^3.0.1",
         "craco-esbuild": "^0.5.2",
         "husky": "^8.0.0"

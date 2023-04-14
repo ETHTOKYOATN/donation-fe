@@ -1,16 +1,23 @@
-function App() {
-    return (
-        <div className="App">
-            <header className="App-header">
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-                    Learn React
-                </a>
-            </header>
-        </div>
-    );
-}
+import { BrowserRouter, Switch } from 'react-router-dom';
+import RouteWrapper from '@/components/RouteWrapper';
+import { routes } from '@/routes';
 
-export default App;
+const RouterApp = () => {
+    return (
+        <Switch>
+            {routes.map((item, i) => {
+                return <RouteWrapper key={i} {...item} />;
+            })}
+        </Switch>
+    );
+};
+
+const AppWrapper = () => {
+    return (
+        <BrowserRouter>
+            <RouterApp />
+        </BrowserRouter>
+    );
+};
+
+export default AppWrapper;

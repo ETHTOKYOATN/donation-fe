@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import CircularProgress from '@mui/material/CircularProgress';
-import Button from '@mui/material/Button';
+import { Button, CircularProgress } from '@mui/material';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { Box } from './ContainerLoading.styled';
 
