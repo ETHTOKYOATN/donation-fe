@@ -1,26 +1,46 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
-  },
-  "include": [
-    "src"
-  ]
+    "compilerOptions": {
+        "target": "ES6", // 컴파일 후 JS 버전
+        "lib": ["DOM", "ES6", "DOM.Iterable", "ScriptHost", "ES2016.Array.Include"], // 라이브러리가 사용될 수 있는 JS 버전
+        "allowJs": true, // Typescript 파일에서 Javascript 파일 사용할 수 있도록 설정
+        "skipLibCheck": true, // .d.ts파일 스킵하고 컴파일
+        "strict": true, // 엄격한 타입 체킹 옵션 활성화 여부
+        "forceConsistentCasingInFileNames": true, // 같은 파일에 대한 일관되지 않은 참조를 허용하지 않을지 여부
+        "noEmit": true, // tsc를 타입 체크용으로 사용함(컴파일 용도 X)
+        "esModuleInterop": true, // CommonJS, Es Module 상호운용 가능하게 적용
+        "module": "esnext", // 컴파일된 코드가 어떤 모듈을 사용할 지 결정
+        "moduleResolution": "node", // 모듈 해석 방식
+        "resolveJsonModule": true, // JSON 파일 Import 허옹 설정
+        "isolatedModules": true, // 각각의 소스 파일을 모듈로 만들게 설정
+
+        // "noImplicitReturns": true, // 함수 return 타입 명시
+        "noUncheckedIndexedAccess": true, // 공통 타입으로 지정한 object에 대해 undefined 체크
+        "exactOptionalPropertyTypes": true, // 옵셔널 프로퍼티 타입 명시
+        "removeComments": true, // 컴파일 이후 주석 삭제
+
+        /*
+    / react : .js 파일로 컴파일 된다. (JSX 코드는 React.createElement() 함수의 호출로 변환됨)
+    / react-jsx : .js 파일로 컴파일 된다. (JSX 코드는 _jsx() 함수의 호출로 변환됨)
+    / react-jsxdev : .js 파일로 컴파일 된다. (JSX 코드는 _jsx() 함수의 호출로 변환됨)
+    / preserve : .jsx 파일로 컴파일 된다. (JSX 코드가 그대로 유지됨)
+    / react-native : .js 파일로 컴파일 된다. (JSX 코드가 그대로 유지됨)
+    */
+        "jsx": "react-jsx", // JSX파일을 어떻게 컴파일 할지 결정
+        "incremental": true, // 증분 컴파일
+
+        "baseUrl": ".", // baseUrl을 현재 디렉토리로 설정
+        "paths": {
+            "@/*": ["./src/*"],
+            "@public/*": ["public/*"]
+        }
+    },
+
+    // * 없거나 하나 이상의 문자열과 일치 (디렉터리 구분자 제외)
+    // ? 하나의 문자와 일치 (디렉터리 구분자 제외)
+    // **/ 단계에 관계없이 아무 디렉터리와 일치
+    // 컴파일 하기 원하는 파일/타입 지정
+    "include": ["next-env.d.ts", "declare/nextImage.d.ts", "declare/window.d.ts", "**/*.ts", "**/*.tsx"],
+
+    // 컴파일 하기 원하지 않는 파일/타입 지정
+    "exclude": ["node_modules"]
 }

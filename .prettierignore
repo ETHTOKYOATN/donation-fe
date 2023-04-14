@@ -1,0 +1,8 @@
+node_modules
+.next
+.husky
+yarn.lock
+package-lock.json
+public
+
+README.md
