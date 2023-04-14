@@ -1,0 +1,37 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "extends": ["plugin:@typescript-eslint/recommended", "prettier/prettier", "plugin:prettier/recommended"],
+    "plugins": ["prettier"],
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "prettier/prettier": ["error", { "endOfLine": "auto" }],
+        "no-tabs": ["error", { "allowIndentationTabs": true }],
+        "@typescript-eslint/no-unused-vars": "off", // lint 설정에 의해 오류가 나는데, 왜 여기선 감지가 안되는지?
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-this-alias": [
+            "error",
+            {
+                "allowDestructuring": true, // Allow `const { props, state } = this`; false by default
+                "allowedNames": ["passThis"]
+            }
+        ]
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
+}
