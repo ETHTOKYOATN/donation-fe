@@ -51,7 +51,7 @@ export const Box = styled(MuiBox)(
         position: relative;
         height: 100%;
         .new_challenge {
-            @media only screen and (min-width: 901px) {
+            @media only screen and (min-width: 1025px) {
                 margin-bottom: 40px;
             }
         }
@@ -67,12 +67,12 @@ export const Box = styled(MuiBox)(
         box-shadow: -5px 8px 0px ${alpha(theme.palette.primary.main, 0.6)};
         overflow: hidden;
 
-        @media only screen and (max-width: 900px) {
+        @media only screen and (max-width: 1024px) {
             margin: 0 24px;
             height: calc(100% - 150px);
         }
 
-        @media only screen and (min-width: 901px) {
+        @media only screen and (min-width: 1025px) {
             margin: 0 auto;
             height: calc(100% - 80px);
         }
@@ -111,12 +111,12 @@ export const Box = styled(MuiBox)(
     }
 
     img {
-        @media only screen and (max-width: 900px) {
+        @media only screen and (max-width: 1024px) {
             display: block;
             margin: 40px auto;
         }
 
-        @media only screen and (min-width: 901px) {
+        @media only screen and (min-width: 1025px) {
             position: absolute;
             right: 10%;
             top: 0;

@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import { Box, Button, Stack, Typography } from './TreeDataBox.styled';
 
 const TREE_STEP = ['lil seed', 'sprout', 'baby tree', 'growing', 'mature tree'];
@@ -15,7 +16,12 @@ type TreeDataBoxProps = {
 
 export const TreeDataBox = (props: TreeDataBoxProps) => {
     const { id, step, staked, lockup, create, goal } = props;
+    const history = useHistory();
     const ratio = 1;
+
+    const moveToDetail = () => {
+        history.push(`/manage/detail/${id}`);
+    };
 
     return (
         <Box
@@ -34,7 +40,7 @@ export const TreeDataBox = (props: TreeDataBoxProps) => {
             <Box className="graph" color={COLOR[Number(step)] ?? '#FFF'}>
                 <Box className="graph_bar" />
             </Box>
-            <Button>
+            <Button onClick={moveToDetail}>
                 <Typography variant="h6">view challenge</Typography>
             </Button>
         </Box>

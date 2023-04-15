@@ -43,7 +43,7 @@ const USER_NFT_DATA_TMP = [
         goal: 'Memorize at least 5 English words',
     },
     {
-        id: 4,
+        id: 5,
         step: '3',
         staked: '7',
         lockup: '30',

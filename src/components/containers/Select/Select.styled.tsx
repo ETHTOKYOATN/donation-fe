@@ -16,12 +16,12 @@ export const ChallengeBox = styled(MuiBox)(({ theme }) => ({
         opacity: 1,
     },
 
-    '@media only screen and (max-width: 900px)': {
+    '@media only screen and (max-width: 1024px)': {
         minWidth: '445px',
         width: '50%',
     },
 
-    '@media only screen and (min-width: 901px)': {
+    '@media only screen and (min-width: 1025px)': {
         flex: '1 1 0',
     },
 }));
@@ -34,12 +34,12 @@ export const Box = styled(MuiBox)(
         gap: 30px;
         padding: 24px;
 
-        @media only screen and (max-width: 900px) {
+        @media only screen and (max-width: 1024px) {
             flex-direction: column;
             align-items: center; 
         }
 
-        @media only screen and (min-width: 901px) {
+        @media only screen and (min-width: 1025px) {
             flex-direction: row;
         }
     }
@@ -53,12 +53,12 @@ export const Box = styled(MuiBox)(
         border-radius: 12px;
         box-shadow: 0px 8px 0px ${alpha(theme.palette.primary.main, 0.6)};
 
-        @media only screen and (max-width: 900px) {
+        @media only screen and (max-width: 1024px) {
             min-width: 445px;
             width: 50%;
         }
 
-        @media only screen and (min-width: 901px) {
+        @media only screen and (min-width: 1025px) {
             flex: 1 1 0;
         }
     }

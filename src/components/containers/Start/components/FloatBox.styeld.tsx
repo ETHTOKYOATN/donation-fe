@@ -22,7 +22,7 @@ export const FloatSelectBox = styled(MuiBox, {
         opacity: 1;
     }
 
-    @media only screen and (max-width: 900px) {
+    @media only screen and (max-width: 1024px) {
         width: 50%;
         min-width: 240px;
         margin: 0 auto;

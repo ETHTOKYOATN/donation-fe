@@ -10,10 +10,10 @@ export const Stack = styled(MuiStack)(
         padding: 24px;
         margin-top: 12px;
         
-        @media only screen and (max-width: 900px) {
+        @media only screen and (max-width: 1024px) {
             height: 100%;
         }
-        @media only screen and (min-width: 901px) {
+        @media only screen and (min-width: 1025px) {
             height: calc(100% - 170px);
         }
 
