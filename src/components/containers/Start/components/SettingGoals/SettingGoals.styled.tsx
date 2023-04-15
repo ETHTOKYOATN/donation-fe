@@ -22,7 +22,11 @@ export const Stack = styled(MuiStack)(
             width: 100%;
             gap: 24px;
         
-            @media only screen and (min-width: 900px) {
+            @media only screen and (max-width: 1024px) {
+                align-items: center;
+            }
+
+            @media only screen and (min-width: 1025px) {
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
@@ -43,6 +47,6 @@ export const Typography = styled(MuiTypography)(
 export const TextField = styled(MuiTextField)(
     ({ theme }) => `
     width: 80%;
-    overflow: visible
+    overflow: visible;
 `,
 );
