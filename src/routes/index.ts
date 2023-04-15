@@ -12,6 +12,11 @@ const LoadableSelect = Loadable({
     loading: ContainerLoading,
 });
 
+const LoadableStart = Loadable({
+    loader: () => import('@/components/containers/Start'),
+    loading: ContainerLoading,
+});
+
 export const homeDomainName = 'Donation';
 
 export const commonRoutes = [
@@ -31,6 +36,14 @@ export const commonRoutes = [
         layout: LayoutType2,
         checkAuth: true,
     },
+    {
+        name: 'Start',
+        path: '/start',
+        exact: true,
+        component: LoadableStart,
+        layout: LayoutType2,
+        checkAuth: true,
+    },
 ];
 
 export const routes = [
@@ -39,7 +52,7 @@ export const routes = [
         name: 'Base URL',
         path: '/*',
         exact: true,
-        component: LoadableMain,
+        component: LoadableStart,
         layout: LayoutType1,
         checkAuth: false,
     },
