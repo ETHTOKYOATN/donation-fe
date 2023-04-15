@@ -1,5 +1,36 @@
 export const NFT_ABI = [
     {
+        inputs: [
+            {
+                internalType: 'address',
+                name: '_address',
+                type: 'address',
+            },
+            {
+                internalType: 'uint256',
+                name: '_id',
+                type: 'uint256',
+            },
+        ],
+        name: 'addAddress',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+    },
+    {
+        inputs: [
+            {
+                internalType: 'uint256',
+                name: '_id',
+                type: 'uint256',
+            },
+        ],
+        name: 'addWateringDate',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+    },
+    {
         inputs: [],
         stateMutability: 'nonpayable',
         type: 'constructor',
@@ -122,6 +153,21 @@ export const NFT_ABI = [
                 internalType: 'uint256',
                 name: 'date',
                 type: 'uint256',
+            },
+            {
+                internalType: 'string',
+                name: 'goal',
+                type: 'string',
+            },
+            {
+                internalType: 'uint256',
+                name: 'staked',
+                type: 'uint256',
+            },
+            {
+                internalType: 'address',
+                name: 'donationContract',
+                type: 'address',
             },
         ],
         name: 'safeMint',
@@ -286,6 +332,57 @@ export const NFT_ABI = [
                 type: 'uint256',
             },
         ],
+        name: 'getAllCharacter',
+        outputs: [
+            {
+                components: [
+                    {
+                        internalType: 'uint256',
+                        name: 'Watering',
+                        type: 'uint256',
+                    },
+                    {
+                        internalType: 'uint256',
+                        name: 'Date',
+                        type: 'uint256',
+                    },
+                    {
+                        internalType: 'uint256',
+                        name: 'CreatedTime',
+                        type: 'uint256',
+                    },
+                    {
+                        internalType: 'string',
+                        name: 'Goal',
+                        type: 'string',
+                    },
+                    {
+                        internalType: 'uint256',
+                        name: 'Staked',
+                        type: 'uint256',
+                    },
+                    {
+                        internalType: 'address',
+                        name: 'DonationContract',
+                        type: 'address',
+                    },
+                ],
+                internalType: 'struct MyToken.TokenData',
+                name: '',
+                type: 'tuple',
+            },
+        ],
+        stateMutability: 'view',
+        type: 'function',
+    },
+    {
+        inputs: [
+            {
+                internalType: 'uint256',
+                name: 'tokenId',
+                type: 'uint256',
+            },
+        ],
         name: 'getApproved',
         outputs: [
             {
@@ -343,12 +440,107 @@ export const NFT_ABI = [
                 type: 'uint256',
             },
         ],
+        name: 'getDonationContract',
+        outputs: [
+            {
+                internalType: 'address',
+                name: '',
+                type: 'address',
+            },
+        ],
+        stateMutability: 'view',
+        type: 'function',
+    },
+    {
+        inputs: [
+            {
+                internalType: 'uint256',
+                name: 'tokenId',
+                type: 'uint256',
+            },
+        ],
+        name: 'getGoal',
+        outputs: [
+            {
+                internalType: 'string',
+                name: '',
+                type: 'string',
+            },
+        ],
+        stateMutability: 'view',
+        type: 'function',
+    },
+    {
+        inputs: [
+            {
+                internalType: 'address',
+                name: 'holder',
+                type: 'address',
+            },
+        ],
+        name: 'getNftListOfHolder',
+        outputs: [
+            {
+                internalType: 'uint256[]',
+                name: '',
+                type: 'uint256[]',
+            },
+        ],
+        stateMutability: 'view',
+        type: 'function',
+    },
+    {
+        inputs: [
+            {
+                internalType: 'uint256',
+                name: 'tokenId',
+                type: 'uint256',
+            },
+        ],
+        name: 'getStaked',
+        outputs: [
+            {
+                internalType: 'uint256',
+                name: '',
+                type: 'uint256',
+            },
+        ],
+        stateMutability: 'view',
+        type: 'function',
+    },
+    {
+        inputs: [
+            {
+                internalType: 'uint256',
+                name: 'tokenId',
+                type: 'uint256',
+            },
+        ],
         name: 'getWatering',
         outputs: [
             {
                 internalType: 'uint256',
                 name: '',
                 type: 'uint256',
+            },
+        ],
+        stateMutability: 'view',
+        type: 'function',
+    },
+    {
+        inputs: [
+            {
+                internalType: 'uint256',
+                name: 'id',
+                type: 'uint256',
+            },
+        ],
+        name: 'getWateringDate',
+        outputs: [
+            {
+                internalType: 'uint256[]',
+                name: '',
+                type: 'uint256[]',
             },
         ],
         stateMutability: 'view',

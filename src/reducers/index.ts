@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import wallet from './module/wallet';
 import nft from './module/nft';
-import donate from './module/donate';
+import water from './module/water';
 
-const rootReducer = combineReducers({ wallet, nft, donate });
+const rootReducer = combineReducers({ wallet, nft, water });
 
 export default rootReducer;
 

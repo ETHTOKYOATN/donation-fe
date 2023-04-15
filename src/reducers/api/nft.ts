@@ -1,3 +1,4 @@
+import { hexToDecimal } from './../../utils/utilFunctions';
 import { mintNft } from './../module/nft';
 import { ethers } from 'ethers';
 import { GelatoRelayAdapter } from '@safe-global/relay-kit';
@@ -9,22 +10,37 @@ import {
     RelayTransaction,
 } from '@safe-global/safe-core-sdk-types';
 import { getMetamaskAddress } from './wallet';
-import { NFT_ABI } from './abi/nft';
 import axios from 'axios';
+import { NFT_ABI } from './abi/nft';
+import BigNumber from 'bignumber.js';
 
-export const mintingNFT = async (lockup: string) => {
+export const mintingNFT = async (staked: string, lockup: string, goal: string, donation: string) => {
     const { address } = await getMetamaskAddress();
     const iface = new ethers.utils.Interface(NFT_ABI);
-    const data = iface.encodeFunctionData('safeMint', [address, lockup]);
+    const data = iface.encodeFunctionData('safeMint', [
+        address,
+        lockup,
+        goal,
+        new BigNumber(staked).multipliedBy(10 ** 18).toString(),
+        '0xF1238CE800C5596DC7F7F2451c901E0fFABb0A53',
+    ]);
     const provider = new ethers.providers.JsonRpcProvider('https://polygon-testnet-rpc.allthatnode.com:8545');
 
     const signer = new ethers.Wallet(process.env.REACT_APP_OWNER_1_PRIVATE_KEY ?? '', provider);
-    const safeAddress = '0xfad5b9e1192178acec0f9d9e2949e10f19859ba9'; // Safe from which the transaction will be sent. Replace with your Safe address
+    const result = await signer.sendTransaction({
+        to: '0x0CC77D19782D5b79C2a7784D0ff0379c9e944994',
+        data,
+        gasLimit: 1000000,
+    });
+
+    return result.hash;
+
+    // Safe from which the transaction will be sent. Replace with your Safe address
+    const safeAddress = '0xfad5b9e1192178acec0f9d9e2949e10f19859ba9';
     const chainId = 80001;
 
     // Any address can be used for destination. In this example, we use vitalik.eth
-    const destinationAddress = '0xCd04238667e5AA09193Ad2A293FeDc62cF6d3D9f';
-    const withdrawAmount = ethers.utils.parseUnits('0.0005', 'ether').toString();
+    const destinationAddress = '0x0CC77D19782D5b79C2a7784D0ff0379c9e944994';
 
     // Get Gelato Relay API Key: https://relay.gelato.network/
     const GELATO_RELAY_API_KEY = process.env.REACT_APP_GELATO_RELAY_API_KEY;
@@ -93,52 +109,64 @@ export const mintingNFT = async (lockup: string) => {
     return relayTransaction();
 };
 
-export const getUserNFTData = async (): Promise<typeof USER_NFT_DATA_TMP> => {
-    return new Promise((resolve) => {
-        resolve(USER_NFT_DATA_TMP);
-        return USER_NFT_DATA_TMP;
-    });
+export const getUserNFTIDs = async (address: string): Promise<number[]> => {
+    const provider = new ethers.providers.JsonRpcProvider('https://polygon-testnet-rpc.allthatnode.com:8545');
+    const contract = new ethers.Contract('0x0CC77D19782D5b79C2a7784D0ff0379c9e944994', NFT_ABI, provider);
+    const ids: BigNumber[] = await contract.getNftListOfHolder(address);
+
+    return ids.map((item) => item.toNumber());
 };
 
-const USER_NFT_DATA_TMP = [
-    {
-        id: 1,
-        staked: '1.5',
-        step: '0',
-        lockup: '30',
-        create: '2023-03-20',
-        goal: 'Memorize at least 5 English words',
-    },
-    {
-        id: 2,
-        step: '4',
-        staked: '4',
-        lockup: '30',
-        create: '2023-02-30',
-        goal: 'Memorize at least 5 English words',
-    },
-    {
-        id: 3,
-        step: '2',
-        staked: '1.5',
-        lockup: '90',
-        create: '2023-01-21',
-        goal: 'Memorize at least 5 English words',
-    },
-    {
-        id: 4,
-        step: '1',
-        staked: '3',
-        lockup: '90',
-        create: '2022-12-21',
-        goal: 'Memorize at least 5 English words',
-    },
-    {
-        id: 5,
-        step: '3',
-        staked: '7',
-        lockup: '30',
-        create: '2023-03-20',
-        goal: 'Memorize at least 5 English words',
-    },
+type getAllCharacterType = {
+    Watering: BigNumber;
+    Date: BigNumber;
+    Goal: string;
+    CreatedTime: BigNumber;
+    Staked: BigNumber;
+    DonationContract: string;
+};
+export const getNFTCharacterData = async (ids: number[]): Promise<any> => {
+    const provider = new ethers.providers.JsonRpcProvider('https://polygon-testnet-rpc.allthatnode.com:8545');
+    const contract = new ethers.Contract('0x0CC77D19782D5b79C2a7784D0ff0379c9e944994', NFT_ABI, provider);
+    const promises = ids.map((id) => contract.getAllCharacter(id));
+    const result: getAllCharacterType[] = await Promise.all(promises);
+
+    const resultParsed = result.map((item, index) => {
+        return {
+            id: ids[index] ?? 0,
+            staked: new BigNumber(item.Staked.toString()).div(new BigNumber(10 ** 18)).toString(),
+            lockup: item.Date.toString(),
+            create: item.CreatedTime.toString(),
+            goal: item.Goal,
+            watered: item.Watering.toString(),
+            donation: item.DonationContract,
+        };
+    });
+
+    return resultParsed;
+};
+
+const URL = [
+    'https://ipfs.io/ipfs/QmYorvYETjoVbh9SyMQNvLySHoDWWLTHNRrYSHkJWGXSor/1.png',
+    'https://ipfs.io/ipfs/QmYorvYETjoVbh9SyMQNvLySHoDWWLTHNRrYSHkJWGXSor/2.png',
+    'https://ipfs.io/ipfs/QmYorvYETjoVbh9SyMQNvLySHoDWWLTHNRrYSHkJWGXSor/3.png',
+    'https://ipfs.io/ipfs/QmYorvYETjoVbh9SyMQNvLySHoDWWLTHNRrYSHkJWGXSor/4.png',
+    'https://ipfs.io/ipfs/QmYorvYETjoVbh9SyMQNvLySHoDWWLTHNRrYSHkJWGXSor/5.png',
 ];
+export const getTokenURIData = async (ids: number[]) => {
+    const provider = new ethers.providers.JsonRpcProvider('https://polygon-testnet-rpc.allthatnode.com:8545');
+    const contract = new ethers.Contract('0x0CC77D19782D5b79C2a7784D0ff0379c9e944994', NFT_ABI, provider);
+    const promises = ids.map((id) => contract.tokenURI(id));
+    const result: string[] = await Promise.all(promises);
+
+    const resultParsed = result.map((item, index) => {
+        const step = URL.indexOf(item);
+        return {
+            id: ids[index] ?? 0,
+            url: item,
+            step,
+        };
+    });
+
+    return resultParsed;
+};
