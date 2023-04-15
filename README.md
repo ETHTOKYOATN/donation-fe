@@ -50,6 +50,7 @@ This is a application that allows users to donate to their favorite charity or c
 ## repo
 - https://github.com/ETHTOKYOATN/donation-fe
 - https://github.com/ETHTOKYOATN/donation-contract
+- https://www.figma.com/file/Q7Tdx8dhElWq7FiL93bxxs/🌱--%5BETH-Tokyo%5D-OnChallenge?node-id=2-4693&t=P2sLz6eixqKmiyfu-0
 
 ## Features
 ### Donation
@@ -64,14 +65,13 @@ This is a application that allows users to donate to their favorite charity or c
 ### Technology
 The application is built using the following technologies:
 
-- Front-end: React, Redux, HTML, CSS, JavaScript
+- Front-end: React, Redux, HTML, CSS, TypeScript
 - Back-end: Solidity, Polygon Network
 - Design: Figma
-- Hosting: AWS
 ### Getting Started
 To run the application locally, follow these steps:
 
-1. Clone the repository: git clone https://github.com/your-username/donation-platform.git
+1. Clone the repository: git clone https://github.com/ETHTOKYOATN/donation-platform.git
 2. Install dependencies: yarn
 3. Start the development server: yarn start
 4. Open the application in your browser at http://localhost:3000
@@ -80,4 +80,3 @@ To run the application locally, follow these steps:
 - HyeongSub Jeong (Front-end Developer)
 - JiHoo Lee (UI/UX Designer)
 - UiHyeon Lee (Contract Build)
-### License
