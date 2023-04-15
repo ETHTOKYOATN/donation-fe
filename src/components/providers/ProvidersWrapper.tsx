@@ -3,8 +3,9 @@ import { useMemo, useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { myTheme } from '@/styles/theme';
 import CssBaseline from '@mui/material/CssBaseline';
-import CustomUtilsContextProvider from './CustomUtilsProvider';
-import ActionsContextProvider from './ActionsProvider';
+import CustomUtilsProvider from './CustomUtilsProvider';
+import ActionsProvider from './ActionsProvider';
+import DialogProvider from './DialogProvider';
 
 type ProvidersWrapperProps = {
     children: React.ReactNode;
@@ -27,12 +28,14 @@ const ProvidersWrapper = (props: ProvidersWrapperProps) => {
     );
 
     return (
-        <ActionsContextProvider>
-            <CustomUtilsContextProvider>
-                <CssBaseline />
-                <ThemeProvider theme={theme}>{children}</ThemeProvider>
-            </CustomUtilsContextProvider>
-        </ActionsContextProvider>
+        <DialogProvider>
+            <ActionsProvider>
+                <CustomUtilsProvider>
+                    <CssBaseline />
+                    <ThemeProvider theme={theme}>{children}</ThemeProvider>
+                </CustomUtilsProvider>
+            </ActionsProvider>
+        </DialogProvider>
     );
 };
 
