@@ -4,6 +4,7 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import { myTheme } from '@/styles/theme';
 import CssBaseline from '@mui/material/CssBaseline';
 import CustomUtilsContextProvider from './CustomUtilsProvider';
+import ActionsContextProvider from './ActionsProvider';
 
 type ProvidersWrapperProps = {
     children: React.ReactNode;
@@ -26,10 +27,12 @@ const ProvidersWrapper = (props: ProvidersWrapperProps) => {
     );
 
     return (
-        <CustomUtilsContextProvider>
-            <CssBaseline />
-            <ThemeProvider theme={theme}>{children}</ThemeProvider>
-        </CustomUtilsContextProvider>
+        <ActionsContextProvider>
+            <CustomUtilsContextProvider>
+                <CssBaseline />
+                <ThemeProvider theme={theme}>{children}</ThemeProvider>
+            </CustomUtilsContextProvider>
+        </ActionsContextProvider>
     );
 };
 

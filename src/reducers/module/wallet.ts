@@ -1,5 +1,6 @@
 import { createAction, createReducer, Dispatch } from '@reduxjs/toolkit';
 import { RootState } from '@/reducers';
+import { getMetamaskAddress } from '../api/wallet';
 // import { getMetamaskAddress } from '../api/wallet';
 
 type WalletActionType = ReturnType<
@@ -85,8 +86,8 @@ export default wallet;
 export const connectMetamask = () => (dispatch: Dispatch<WalletActionType>, getState: () => RootState) => {
     dispatch(connectMetamaskPending());
 
-    return new Promise((resolve, reject) => {
-        new Promise((resolve) => {})
+    return new Promise(async (resolve, reject) => {
+        await getMetamaskAddress()
             .then((res) => {
                 dispatch(connectMetamaskSuccess(res));
                 resolve(res);

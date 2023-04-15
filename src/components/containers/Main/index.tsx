@@ -18,6 +18,7 @@ const Main = () => {
 
     const connectMetamask = async () => {
         WalletActions.connectMetamask();
+        console.log(account);
     };
 
     return (
