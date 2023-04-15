@@ -1,14 +1,30 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+
+import rootReducer from '@/reducers';
+import { configureStore } from '@reduxjs/toolkit';
+import ProvidersWrapper from '@/components/providers/ProvidersWrapper';
+
 import App from './App';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
+
+const store = configureStore({
+    reducer: rootReducer,
+});
 
 const run = async () => {
     const container = document.getElementById('root') as HTMLElement;
     const root = ReactDOM.createRoot(container);
 
-    root.render(<App />);
+    root.render(
+        <Provider store={store}>
+            <ProvidersWrapper>
+                <App />
+            </ProvidersWrapper>
+        </Provider>,
+    );
     reportWebVitals();
 };
 
