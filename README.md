@@ -1,5 +1,55 @@
-# Donation Platform with Goal Setting, Habit Building, and fairy Raising Features
-This is a web application that allows users to donate to their favorite charity or cause while also setting personal goals for habit building and fairy raising.
+# On Chanllenge : Donation Platform with Goal Setting, Habit Building, and fairy Raising Features
+This is a application that allows users to donate to their favorite charity or cause while also setting personal goals for habit building and fairy raising.                                                                                                                        
+                                                                                                                             
+                                                                                                                                
+                @@@@(                 @@@@*   #@@                  @@    @@                                                      
+              @@@   @@@  @@@(@@@@   @@@   @\  ,@@        /@@@@@    @@    @@     @@@@@#  @@@.@@@@#   ,@@@@@@@   @@@@@,             
+             @@@     @@  @@@   #@@ /@@        @@@&&@@    (@&,@@    @@    @@    @@@@@@@@ @@@    @@  &@@   @@@ &@@   @@*            
+             .@@%   @@@  @@@   ,@@  @@@,  @/  .@@   @@  @@    @@   @@    @@    @@/  #%  @@@    @@   @@@@@@/  %@@.               
+               %@@@@@    @@/   @@@    &@@@,   %@@   @@   &@@@# @@& %@@@  @@@&   *@@@&   @@@   /@@        @@&   \@@@%/              
+                                                                                                    @@@@@@@                      
+                                                                                                                                
+                                                                                                                                
+                                                                                                                                
+                                                                                                                                
+                                                           (%#      .,                                                          
+                                                  #%@@@@@@@@@@@@&@@@@@@&#                                                       
+                                                #@@@@@@@@@@@@@@@@@@@@@@@@@@@%                                                   
+                                            %@@@@@@@@@@@@@&@@@@@@&@@@@@&@@@@@%                                                  
+                                          ,%@@@@@@@@&@@@@@@@@@@@@&@@@@&@@@@@@#                                                  
+                                         %@@@@@&&@@@@@@@@@@@&%%%%%&&@@@@@@@@%.                                                  
+                                         .%@@@@@@@@%%#.                   .%%%                                                  
+                &&&&&&&&&&%*               %@@%%   &%             .%&%                          %&%%%&&&&&&*                    
+              %&&&&&&&%%%%%%&                   (&&&&&&&&&&%*%&&&&&&&&&&%                     &&&%%&&&&&&&&&&                   
+             #&&&&&&%%%%%%%&&                  *&&&&&&* %&&&&&&&&&&  &&&&&/                   &&&%%%%%%&&&&&&&                  
+             &&&&&&&%%&&&%&&#                  &&&&&&&&&  .&&&&&/  &&&&&&&&/                   %%%%&%%%%&&&&&&                  
+             &&&&&&&&&&%%%&                   &&&&&&&.%&&&&&&&&&&&&&&,%&&&&&                    %&&%%&&&%%&&&&                  
+              &&&&%%%%%%&&&                   %%%%%%&&%   &&&&&&&*  /&&%%%%%                    &&&&&%%%%&&&&                   
+               %&&&&&&&&&&&&            &%%%%%%%%%%%% ,&&&&&&&&&&&&&/ #%%%%%%%%%%%%            &&&&&&&&&&&&&                    
+                &&&&&&&&&&&&&          &%%%%%###%##%%%%%&&&&&&&&&&&%%%%%######%%%%%           &&&&&&&&&&&&&/                    
+                &&&&&&&&&&&&&&          %%%%###&&&##%%%%%&&&&&&&&&&%%%%########%%%(          &&&&&&&&&&&&&&                     
+                .&&&&&&&&&&&&&&             ,######%%%%*************%%%%#%####              (&&&&&&&&&&&&&&                     
+                 &&&&@@&&&&&&&&&&&&&&&&&#,%%#%%%%%%%%%%%************%%%%&&&%%%%%# /&&&&&&&&&&&&%&&&&@&&&&&                      
+                 ,&&&&&&&&&&&&&&&&&&&&&&&%@@@%%%%%%%&&&&&**********&&&&%%%%%%%@@%&&&&&&&&&&&&&&&&%%&&&&&&&                      
+                  &&&&&&&&&&&%%%%&&&&&&&%%%@@@%%&&&&&&&&&&&&/*/(&&&&&&&&&&%#&@@@%%&&&&&&&&&%%%&&&&&&&&&&&                       
+                   &&&&&&&&&&&&&&%%%%%%@@@@@@@@@%%&&&&&&&&&&&&&&&&&&&&&*.%@@@@@@@@@%&%%%%%%&&&&&&&&&&&&&#                       
+                    &&&&&&&&&&&&&&&&&&&&%@@@@@@@@@%%%#,  .,*//*,   *#%&%@@@@@@@@@%%&&&&&&&&&&&&&&&&&&&&                         
+                       #&&&&&&&&&&&&&&&&%@@@@@@@@@&%&&&&&# &.  & &&&&&&%@@@@@@@@@%%&&&&&&&&&&&&&&&&&                            
+                           &&&&&&&&&&&&%%%%%%@@@@@@%&&&& &*& *%%% &&&&&%@@@@@&%%%&%%&&&&&&&&&&&&.                               
+                               ,&&&&&&&%%&&&&&&&&%%%%%%,%,%##(%%%,%%%%%%%%&&&&&&&&%%&&&&&&&/                                    
+                                      (&%%&&&&&&@&&%%@@@@@@@@/@@@@@@@@@%&&&&&&&&&%%&%.                                          
+                                        .%&&&&&&&&&%@@@@@@@@@ @@@@@@@@@%&&&&&&&&&%                                              
+                                          %%&&&&&&# /@@@@@@@@@@@@@@@@@@. &&&&&&%%                                               
+                                          &&&%%%%%                       ,%%%%&&&                                               
+                                          &&&&&&&&                       ,&&&&&&&                                               
+                                          &&&&&&&&                       .&&&&&&&                                               
+                                          &&&&&&&&                       .&&&&&&&                                               
+                                          &&&&&&&&                       .&&&&&&&                                               
+                                          &&&&&&&&                       *&&&&&&&                                               
+
+## repo
+- https://github.com/ETHTOKYOATN/donation-fe
+- https://github.com/ETHTOKYOATN/donation-contract
 
 ## Features
 ### Donation
@@ -15,14 +65,15 @@ This is a web application that allows users to donate to their favorite charity 
 The application is built using the following technologies:
 
 - Front-end: React, Redux, HTML, CSS, JavaScript
-- Back-end: Solidity, Polygon
+- Back-end: Solidity, Polygon Network
+- Design: Figma
 - Hosting: AWS
 ### Getting Started
 To run the application locally, follow these steps:
 
 1. Clone the repository: git clone https://github.com/your-username/donation-platform.git
 2. Install dependencies: yarn
-3. Start the development server: yarn dev
+3. Start the development server: yarn start
 4. Open the application in your browser at http://localhost:3000
 ### Contributors
 - Owen Hwang (Project Managing, Contract Build)
