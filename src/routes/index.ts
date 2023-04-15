@@ -17,6 +17,11 @@ const LoadableStart = Loadable({
     loading: ContainerLoading,
 });
 
+const LoadableManage = Loadable({
+    loader: () => import('@/components/containers/Manage'),
+    loading: ContainerLoading,
+});
+
 export const homeDomainName = 'Donation';
 
 export const commonRoutes = [
@@ -41,6 +46,14 @@ export const commonRoutes = [
         path: '/start',
         exact: true,
         component: LoadableStart,
+        layout: LayoutType2,
+        checkAuth: true,
+    },
+    {
+        name: 'Manage',
+        path: '/manage',
+        exact: true,
+        component: LoadableManage,
         layout: LayoutType2,
         checkAuth: true,
     },

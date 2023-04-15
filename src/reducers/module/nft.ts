@@ -16,11 +16,19 @@ const mintNFTSuccess = createAction<any>('nft/MINT_NFT_SUCCESS');
 const mintNFTFailure = createAction('nft/MINT_NFT_FAILURE');
 
 const getNFTDataPending = createAction('nft/GET_NFT_DATA_PENDING');
-const getNFTDataSuccess = createAction<any>('nft/GET_NFT_DATA_SUCCESS');
+const getNFTDataSuccess = createAction<NFTDataType[]>('nft/GET_NFT_DATA_SUCCESS');
 const getNFTDataFailure = createAction('nft/GET_NFT_DATA_FAILURE');
 
 const initializeNFTData = createAction('nft/INITIALIZE_NFT_DATA');
 
+type NFTDataType = {
+    id: number;
+    staked: string;
+    step: string;
+    lockup: string;
+    create: string;
+    goal: string;
+};
 type InitialState = {
     mint: {
         loading: boolean;
@@ -30,7 +38,7 @@ type InitialState = {
     nft: {
         loading: boolean;
         error: boolean;
-        data: any | null;
+        data: NFTDataType[] | null;
     };
 };
 
@@ -108,7 +116,7 @@ const nft = createReducer(initialState, (builder) => {
 
 export default nft;
 
-const mintNft = () => (dispatch: Dispatch<nftActionType>, getState: () => RootState) => {
+export const mintNft = () => (dispatch: Dispatch<nftActionType>, getState: () => RootState) => {
     dispatch(mintNFTPending());
 
     return new Promise(async (resolve, reject) => {
@@ -124,7 +132,7 @@ const mintNft = () => (dispatch: Dispatch<nftActionType>, getState: () => RootSt
     });
 };
 
-const getNFTData = () => (dispatch: Dispatch<nftActionType>, getState: () => RootState) => {
+export const getNFTData = () => (dispatch: Dispatch<nftActionType>, getState: () => RootState) => {
     dispatch(getNFTDataPending());
 
     return new Promise(async (resolve, reject) => {
