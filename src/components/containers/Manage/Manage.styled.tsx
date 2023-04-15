@@ -36,6 +36,17 @@ export const Stack = styled(MuiStack)(
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    &.title {
+        margin-bottom: 24px;
+
+        @media only screen and (max-width: 1024px) {
+            flex-direction: column;
+            align-items: center;
+        }
+        @media only screen and (max-width: 1024px) {
+        }
+    }
 `,
 );
 

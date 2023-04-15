@@ -8,16 +8,21 @@ const BAR_COLOR = ['#AA9D95', '#B0C09B', '#8AA971', '#6EA45C', '#519350'];
 type TreeDataBoxProps = {
     id: number;
     staked: string;
-    step: string;
     lockup: string;
     create: string;
     goal: string;
+    watered: string;
+    donation: string;
+    url: string;
+    step: number;
 };
 
 export const TreeDataBox = (props: TreeDataBoxProps) => {
-    const { id, step, staked, lockup, create, goal } = props;
+    const { id, step, staked, url, create } = props;
     const history = useHistory();
-    const ratio = 1;
+    const diff = Math.floor(Date.now() / 1000) - Number(create);
+    const diffDay = diff / 60 / 60 / 24;
+    const ratio = diffDay / 30 > 1 ? 1 : diffDay / 30;
 
     const moveToDetail = () => {
         history.push(`/manage/detail/${id}`);
@@ -34,9 +39,11 @@ export const TreeDataBox = (props: TreeDataBoxProps) => {
                 <Typography className="tree_step" variant="h5">
                     {TREE_STEP[Number(step)] ?? 'Unknown'}
                 </Typography>
-                <Typography variant="h5">{staked} ETH</Typography>
+                <Typography variant="h5">{staked} MATIC</Typography>
             </Stack>
-            <Box className="image" />
+            <Box className="image">
+                <img src={url} width="100%" height="100%" />
+            </Box>
             <Box className="graph" color={COLOR[Number(step)] ?? '#FFF'}>
                 <Box className="graph_bar" />
             </Box>
