@@ -22,7 +22,7 @@ const Main = () => {
 
     return (
         <Box>
-            <img src="/static/main_logo.png" alt="main_logo" width="255" height="186" />
+            <img src="/static/main_logo.png" alt="main_logo" width="255" height="255" />
             <Button
                 startIcon={<img src="/svgs/icon_metamask.svg" alt="metamask" width="48" height="44" />}
                 disabled={account.loading}
