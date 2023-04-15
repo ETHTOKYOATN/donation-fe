@@ -6,6 +6,7 @@
         "@craco/craco": "^7.1.0",
         "@emotion/react": "^11.10.6",
         "@emotion/styled": "^11.10.6",
+        "@metamask/providers": "^10.2.1",
         "@mui/icons-material": "^5.11.16",
         "@mui/material": "^5.11.16",
         "@react-loadable/revised": "^1.4.1",
