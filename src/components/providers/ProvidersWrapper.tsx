@@ -5,7 +5,6 @@ import { myTheme } from '@/styles/theme';
 import CssBaseline from '@mui/material/CssBaseline';
 import CustomUtilsProvider from './CustomUtilsProvider';
 import ActionsProvider from './ActionsProvider';
-import DialogProvider from './DialogProvider';
 
 type ProvidersWrapperProps = {
     children: React.ReactNode;
@@ -28,14 +27,12 @@ const ProvidersWrapper = (props: ProvidersWrapperProps) => {
     );
 
     return (
-        <DialogProvider>
-            <ActionsProvider>
-                <CustomUtilsProvider>
-                    <CssBaseline />
-                    <ThemeProvider theme={theme}>{children}</ThemeProvider>
-                </CustomUtilsProvider>
-            </ActionsProvider>
-        </DialogProvider>
+        <ActionsProvider>
+            <CustomUtilsProvider>
+                <CssBaseline />
+                <ThemeProvider theme={theme}>{children}</ThemeProvider>
+            </CustomUtilsProvider>
+        </ActionsProvider>
     );
 };
 

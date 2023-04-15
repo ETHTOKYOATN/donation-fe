@@ -10,16 +10,11 @@ import MuiStack from '@mui/material/Stack';
 export const Dialog = styled(MuiDialog)(
     (props) => `
     .MuiPaper-root {
-        background:#1B1D29;
-        width:420px
+        background: transparent;
+        width: 420px
         .flex-1 {align-items: flex-end;}
     }
     backdrop-filter: blur(4px);
-    .MuiPaper-root {
-        &[role='dialog'] {
-            // max-width: 600px;
-        }  
-    }
 `,
 );
 

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
-import Image from 'next/image';
 
 import { DialogHeader, DialogActions, DialogContent, DialogTitle } from './Dialog.styled';
 
@@ -36,7 +35,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
             <DialogHeader direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
                 <DialogTitle>{title}</DialogTitle>
                 <IconButton onClick={() => onClose()}>
-                    <Image src={'/svg/close.svg'} alt={'icon-close'} draggable={false} priority />
+                    <img src={'/svg/close.svg'} alt={'icon-close'} draggable={false} />
                 </IconButton>
             </DialogHeader>
             <DialogContent>{children}</DialogContent>
