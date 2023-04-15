@@ -17,6 +17,7 @@ const Header = () => {
     const history = useHistory();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
+    const isStart = history.location.pathname === '/start';
 
     const mouseDown = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.stopPropagation();
@@ -41,12 +42,14 @@ const Header = () => {
     return (
         <Box className="header">
             <img className="logo" src="/static/header_logo.png" alt="header_logo" width="350" height="110" />
-            <Box className="home">
-                <img className="home" src="/static/home.png" alt="home" width="120" height="77" />
-                <TiltShakeBox onClick={moveToHome}>
-                    <IconHome />
-                </TiltShakeBox>
-            </Box>
+            {isStart && (
+                <Box className="home">
+                    <img className="home" src="/static/home.png" alt="home" width="120" height="77" />
+                    <TiltShakeBox onClick={moveToHome}>
+                        <IconHome />
+                    </TiltShakeBox>
+                </Box>
+            )}
             <ListItemButton onClick={handleMenuOpen}>
                 <Avatar sizes="10">H</Avatar>
                 <Typography variant="h6">{shortenAddress(account.data?.address ?? '')}</Typography>

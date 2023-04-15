@@ -28,7 +28,7 @@ export const DonationDestination = () => {
             </div>
             <Stack className="destination_contents">
                 {DONATION_DESTINATION.map((item) => (
-                    <FloatBox color={item.color}>
+                    <FloatBox key={item.destination} color={item.color}>
                         <Typography variant="h3">{item.destination}</Typography>
                     </FloatBox>
                 ))}

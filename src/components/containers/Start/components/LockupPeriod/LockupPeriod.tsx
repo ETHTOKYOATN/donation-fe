@@ -32,7 +32,7 @@ export const LockupPeriod = (props: LockupPeriodProps) => {
             </div>
             <Stack className="lockup_contents">
                 {LOCKUP_PERIOD.map((item) => (
-                    <FloatBox color={item.color}>
+                    <FloatBox key={item.day} color={item.color}>
                         <Typography variant="h3">{item.day}</Typography>
                         <Typography variant="h3">Days</Typography>
                     </FloatBox>
