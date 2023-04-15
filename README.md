@@ -1,47 +1,32 @@
-# Getting Started with Create React App
+# Donation Platform with Goal Setting, Habit Building, and fairy Raising Features
+This is a web application that allows users to donate to their favorite charity or cause while also setting personal goals for habit building and fairy raising.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
+### Donation
+- Users can browse through a list of charities and causes and donate to them using their staked token
+- The donation process is user-friendly, with clear instructions and confirmation pages.
+### Goal Setting
+- Users can set personal goals for habit building, such as exercising, reading, meditating, or learning a new language.
+- Users can track their progress and receive reminders
+### Fairy Raising
+- Users can adopt a fairy and take care of it by watering
+- Users can share them on social media.
+### Technology
+The application is built using the following technologies:
 
-## Available Scripts
+- Front-end: React, Redux, HTML, CSS, JavaScript
+- Back-end: Solidity, Polygon
+- Hosting: AWS
+### Getting Started
+To run the application locally, follow these steps:
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-# donation-fe
+1. Clone the repository: git clone https://github.com/your-username/donation-platform.git
+2. Install dependencies: yarn
+3. Start the development server: yarn dev
+4. Open the application in your browser at http://localhost:3000
+### Contributors
+- Owen Hwang (Project Managing, Contract Build)
+- HyeongSub Jeong (Front-end Developer)
+- JiHoo Lee (UI/UX Designer)
+- UiHyeon Lee (Contract Build)
+### License
