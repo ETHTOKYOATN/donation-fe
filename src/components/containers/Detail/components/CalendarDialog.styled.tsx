@@ -28,7 +28,6 @@ export const Stack = styled(MuiStack)(
     }
 
     &.calendar {
-        min-width: 900px;
         background: ${theme.palette.common.white};
         border: 3px solid ${theme.palette.primary.main};
         border-radius: 12px;

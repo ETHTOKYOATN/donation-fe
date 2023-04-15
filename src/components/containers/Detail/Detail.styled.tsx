@@ -91,6 +91,10 @@ export const IconButton = styled(MuiIconButton)(
     box-shadow: 0 4px 0 ${alpha(theme.palette.primary.main, 0.3)};
     border-radius: 24px;
     padding: 24px;
+
+    .loading {
+        border-radius: 20px;
+    }
 `,
 );
 
