@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import * as walletActions from '@/reducers/module/wallet';
 import * as nftActions from '@/reducers/module/nft';
-import * as donateActions from '@/reducers/module/donate';
+import * as waterActions from '@/reducers/module/water';
 
 type ActionsProviderProps = {
     children: React.ReactNode;
@@ -13,8 +13,8 @@ type ActionsProviderProps = {
 const ActionsContext = createContext<{
     WalletActions: typeof walletActions;
     NftActions: typeof nftActions;
-    DonateActions: typeof donateActions;
-}>({ WalletActions: walletActions, NftActions: nftActions, DonateActions: donateActions });
+    WaterActions: typeof waterActions;
+}>({ WalletActions: walletActions, NftActions: nftActions, WaterActions: waterActions });
 
 export const useActions = () => useContext(ActionsContext);
 
@@ -24,10 +24,10 @@ const ActionsContextProvider = (props: ActionsProviderProps) => {
 
     const WalletActions = bindActionCreators(walletActions, dispatch);
     const NftActions = bindActionCreators(nftActions, dispatch);
-    const DonateActions = bindActionCreators(donateActions, dispatch);
+    const WaterActions = bindActionCreators(waterActions, dispatch);
 
     return (
-        <ActionsContext.Provider value={{ WalletActions, NftActions, DonateActions }}>
+        <ActionsContext.Provider value={{ WalletActions, NftActions, WaterActions }}>
             {children}
         </ActionsContext.Provider>
     );

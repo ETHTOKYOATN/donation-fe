@@ -34,8 +34,6 @@ const Start = () => {
         | null
     >(null);
 
-    console.log(mint);
-
     useEffect(() => {
         if (mint.data) history.push('/manage');
     }, [mint.data]);
@@ -55,7 +53,7 @@ const Start = () => {
     };
 
     const onClickStartChallenge = async () => {
-        NftActions.mintNft(lockup ?? '30');
+        NftActions.mintNft(amount, lockup ?? '30', goal, destination ?? '');
         await delay(100000);
     };
 

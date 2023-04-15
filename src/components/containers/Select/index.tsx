@@ -14,15 +14,16 @@ const Select = () => {
 
     return (
         <Box className="select">
+            <Box sx={{ minHeight: '300px' }} />
             <ChallengeBox onClick={startChallenge}>
-                <Box sx={{ height: '100px' }} />
-                <Typography variant="h5">Start</Typography>
-                <Typography variant="h5">New Challenge</Typography>
+                <img src="/static/start_new_challenge.png" alt="start_menu_challenge" width="265" height="300" />
+                <Typography variant="h3">Start New</Typography>
+                <Typography variant="h4">Challenge</Typography>
             </ChallengeBox>
             <ChallengeBox onClick={manageChallenge}>
-                <Box sx={{ height: '100px' }} />
-                <Typography variant="h5">Manage</Typography>
-                <Typography variant="h5">My Challenges</Typography>
+                <img src="/static/manage_my_challenges.png" alt="start_menu_challenge" width="372" height="283" />
+                <Typography variant="h3">Manage</Typography>
+                <Typography variant="h4">My Challenges</Typography>
             </ChallengeBox>
         </Box>
     );

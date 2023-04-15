@@ -2,13 +2,16 @@ import { alpha, keyframes, styled } from '@mui/material/styles';
 import { Box as MuiBox, Typography as MuiTypography, Button as MuiButton } from '@mui/material';
 
 export const ChallengeBox = styled(MuiBox)(({ theme }) => ({
-    height: '100%',
     padding: '26px',
     background: theme.palette.common.white,
     border: `3px solid ${theme.palette.primary.main}`,
     borderRadius: '12px',
     boxShadow: `0 8px 0 ${alpha(theme.palette.primary.main, 0.6)}`,
     opacity: '0.6',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '12px',
 
     '&:hover': {
         transform: 'translateY(-5px)',
@@ -23,18 +26,23 @@ export const ChallengeBox = styled(MuiBox)(({ theme }) => ({
 
     '@media only screen and (min-width: 1025px)': {
         flex: '1 1 0',
+        maxWidth: '445px',
+        maxHeight: '520px',
     },
 }));
 
 export const Box = styled(MuiBox)(
     ({ theme }) => `
     &.select {
+        overflow: scroll;
         width: 100%;
         display: flex;
         gap: 30px;
         padding: 24px;
+        justify-content: center;
 
         @media only screen and (max-width: 1024px) {
+            height: 100%;
             flex-direction: column;
             align-items: center; 
         }
