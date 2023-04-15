@@ -26,7 +26,6 @@ export const SettingGoals = (props: SettingGoalsProps) => {
                 <TextField
                     multiline
                     rows={4}
-                    maxRows={4}
                     type="string"
                     variant="outlined"
                     autoComplete="off"

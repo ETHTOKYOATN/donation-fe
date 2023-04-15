@@ -33,6 +33,8 @@ export const Box = styled(MuiBox)(
         width: 100%;
 
         img {
+            cursor: pointer;
+
             &.logo {
                 position: absolute;
                 top: 0;

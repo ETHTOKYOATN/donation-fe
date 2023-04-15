@@ -13,11 +13,13 @@ import { SetAmount } from './components/SetAmount/SetAmount';
 import { LockupPeriod } from './components/LockupPeriod/LockupPeriod';
 import { SettingGoals } from './components/SettingGoals/SettingGoals';
 import { DonationDestination } from './components/DonationDestination/DonationDestination';
+import { Loading } from '@/components/commons/Loadings';
+import { delay } from '@/utils/utilFunctions';
 
 const Start = () => {
     const {
         wallet: { balance },
-        nft: { nft },
+        nft: { mint },
     } = useSelector((state: RootState) => state);
     const { WalletActions, NftActions } = useActions();
     const history = useHistory();
@@ -32,11 +34,11 @@ const Start = () => {
         | null
     >(null);
 
-    const [invalid, setInvalid] = useState(false);
+    console.log(mint);
 
     useEffect(() => {
-        if (amount === '0') setInvalid(true);
-    }, [amount]);
+        if (mint.data) history.push('/manage');
+    }, [mint.data]);
 
     useEffect(() => {
         WalletActions.getAddressBalance();
@@ -52,10 +54,9 @@ const Start = () => {
         setStep((prevStep) => prevStep - 1);
     };
 
-    const onClickStartChallenge = () => {
-        console.log('Clicked');
-        NftActions.mintNft();
-        // history.push('/manage');
+    const onClickStartChallenge = async () => {
+        NftActions.mintNft(lockup ?? '30');
+        await delay(100000);
     };
 
     return (
@@ -95,6 +96,7 @@ const Start = () => {
                     )}
                     {step === 3 && (
                         <Button className="end_setting" onClick={onClickStartChallenge}>
+                            {mint.loading && <Loading />}
                             <Typography className="start_challenge" variant="h4">
                                 Start Challenge!
                             </Typography>

@@ -116,16 +116,19 @@ const nft = createReducer(initialState, (builder) => {
 
 export default nft;
 
-export const mintNft = () => (dispatch: Dispatch<nftActionType>, getState: () => RootState) => {
+export const mintNft = (lockup: string) => (dispatch: Dispatch<nftActionType>, getState: () => RootState) => {
     dispatch(mintNFTPending());
+    console.log('pending');
 
     return new Promise(async (resolve, reject) => {
-        await mintingNFT(30)
+        await mintingNFT(lockup)
             .then((res) => {
+                console.log('success');
                 dispatch(mintNFTSuccess(res));
                 resolve(res);
             })
             .catch((error) => {
+                console.log('fail');
                 dispatch(mintNFTFailure());
                 reject(error);
             });

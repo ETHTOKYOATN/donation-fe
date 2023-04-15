@@ -12,37 +12,11 @@ import { getMetamaskAddress } from './wallet';
 import { NFT_ABI } from './abi/nft';
 import axios from 'axios';
 
-// const providers = new ethers.providers.JsonRpcProvider('https://polygon-testnet-rpc.allthatnode.com:8545');
-// const signers = new ethers.Wallet(process.env.REACT_APP_OWNER_1_PRIVATE_KEY ?? '', providers);
-
-// const contract = new ethers.Contract('0xCd04238667e5AA09193Ad2A293FeDc62cF6d3D9f', NFT_ABI, signers);
-
-// const owner = await contract.functions.owner?.();
-// const results = await contract.functions.transferOwnership?.('0xfad5b9e1192178acec0f9d9e2949e10f19859ba9');
-// console.log('owner', owner);
-// console.log('results', results);
-
-// const result = await axios.post({
-//     'https://polygon-testnet-rpc.allthatnode.com:8545',
-//     {
-//         jsonrpc: '2.0',
-//         method: 'eth_sendTransaction',
-
-//     },
-//     {
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//     }
-// })
-export const mintingNFT = async (lockup: number) => {
+export const mintingNFT = async (lockup: string) => {
     const { address } = await getMetamaskAddress();
     const iface = new ethers.utils.Interface(NFT_ABI);
     const data = iface.encodeFunctionData('safeMint', [address, lockup]);
     const provider = new ethers.providers.JsonRpcProvider('https://polygon-testnet-rpc.allthatnode.com:8545');
-
-    console.log('REACT_APP_OWNER_1_PRIVATE_KEY', process.env.REACT_APP_OWNER_1_PRIVATE_KEY);
-    console.log('REACT_APP_GELATO_RELAY_API_KEY', process.env.REACT_APP_GELATO_RELAY_API_KEY);
 
     const signer = new ethers.Wallet(process.env.REACT_APP_OWNER_1_PRIVATE_KEY ?? '', provider);
     const safeAddress = '0xfad5b9e1192178acec0f9d9e2949e10f19859ba9'; // Safe from which the transaction will be sent. Replace with your Safe address
@@ -70,7 +44,7 @@ export const mintingNFT = async (lockup: number) => {
         isSponsored: true,
     };
 
-    async function relayTransaction() {
+    const relayTransaction = async () => {
         const ethAdapter = new EthersAdapter({
             ethers,
             signerOrProvider: signer,
@@ -89,7 +63,6 @@ export const mintingNFT = async (lockup: number) => {
         });
 
         const signedSafeTx = await safeSDK.signTransaction(safeTransaction);
-        console.log('signedSafeTx---------------------------------------------------------------', signedSafeTx.data);
 
         const encodedTx = safeSDK
             .getContractManager()
@@ -115,13 +88,9 @@ export const mintingNFT = async (lockup: number) => {
         const response = await relayAdapter.relayTransaction(relayTransaction);
 
         return `Relay Transaction Task ID: https://relay.gelato.digital/tasks/status/${response.taskId}`;
-    }
+    };
 
-    const result = await relayTransaction();
-
-    console.log('result', result);
-
-    return result;
+    return relayTransaction();
 };
 
 export const getUserNFTData = async (): Promise<typeof USER_NFT_DATA_TMP> => {

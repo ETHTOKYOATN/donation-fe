@@ -41,7 +41,14 @@ const Header = () => {
 
     return (
         <Box className="header">
-            <img className="logo" src="/static/header_logo.png" alt="header_logo" width="350" height="110" />
+            <img
+                className="logo"
+                src="/static/header_logo.png"
+                alt="header_logo"
+                width="350"
+                height="110"
+                onClick={moveToHome}
+            />
             {isStart && (
                 <Box className="home">
                     <img className="home" src="/static/home.png" alt="home" width="120" height="77" />

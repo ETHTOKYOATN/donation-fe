@@ -19,7 +19,6 @@ const getChainID = async () => {
 
 export const getMetamaskAddress = async () => {
     const chainID = await getChainID();
-    console.log('chainID', chainID);
     const { ethereum } = window;
     if (!ethereum) throw new Error('Failed to detect wallet or browser.');
     try {

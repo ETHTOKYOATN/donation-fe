@@ -44,6 +44,11 @@ export const Button = styled(MuiButton)(
         }
     }
 
+    .loading {
+        border-radius: 55px;
+        top: 3px;
+    }
+
 `,
 );
 

@@ -3,3 +3,5 @@ export const shortenAddress = (address: string, chars = 4): string => {
 };
 
 export const hexToDecimal = (hex: string) => parseInt(hex, 16);
+
+export const delay = (time: number) => new Promise((response) => setTimeout(response, time));
