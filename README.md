@@ -1,11 +1,11 @@
-# Donation Platform with Goal Setting, Habit Building, and fairy Raising Features
+# On Chanllenge : Donation Platform with Goal Setting, Habit Building, and fairy Raising Features
 This is a application that allows users to donate to their favorite charity or cause while also setting personal goals for habit building and fairy raising.                                                                                                                        
                                                                                                                              
                                                                                                                                 
-                @@@@(                 @@@@*   #@@                  @@    @@@                                                      
-              @@@   @@@  @@@(@@@@   @@@   @\  ,@@        /@@@@@    @@    @@@    @@@@@#  @@@.@@@@#   ,@@@@@@@   @@@@@,             
-             @@@     @@  @@@   #@@ /@@        @@@&&@@    (@&,@@    @@    @@(   @@@@@@@@ @@@    @@  &@@   @@@ &@@   @@*            
-             .@@%   @@@  @@@   ,@@  @@@,  @/  .@@   @@  @@    @@   @@    @@#   @@/  #%  @@@    @@   @@@@@@/  %@@.               
+                @@@@(                 @@@@*   #@@                  @@    @@                                                      
+              @@@   @@@  @@@(@@@@   @@@   @\  ,@@        /@@@@@    @@    @@     @@@@@#  @@@.@@@@#   ,@@@@@@@   @@@@@,             
+             @@@     @@  @@@   #@@ /@@        @@@&&@@    (@&,@@    @@    @@    @@@@@@@@ @@@    @@  &@@   @@@ &@@   @@*            
+             .@@%   @@@  @@@   ,@@  @@@,  @/  .@@   @@  @@    @@   @@    @@    @@/  #%  @@@    @@   @@@@@@/  %@@.               
                %@@@@@    @@/   @@@    &@@@,   %@@   @@   &@@@# @@& %@@@  @@@&   *@@@&   @@@   /@@        @@&   \@@@%/              
                                                                                                     @@@@@@@                      
                                                                                                                                 
@@ -47,6 +47,9 @@ This is a application that allows users to donate to their favorite charity or c
                                           &&&&&&&&                       .&&&&&&&                                               
                                           &&&&&&&&                       *&&&&&&&                                               
 
+## repo
+- https://github.com/ETHTOKYOATN/donation-fe
+- https://github.com/ETHTOKYOATN/donation-contract
 
 ## Features
 ### Donation
@@ -62,7 +65,8 @@ This is a application that allows users to donate to their favorite charity or c
 The application is built using the following technologies:
 
 - Front-end: React, Redux, HTML, CSS, JavaScript
-- Back-end: Solidity, Polygon
+- Back-end: Solidity, Polygon Network
+- Design: Figma
 - Hosting: AWS
 ### Getting Started
 To run the application locally, follow these steps:
