@@ -9,7 +9,7 @@ export const Stack = styled(MuiStack)(
         justify-content: space-between;
         padding: 24px;
         margin-top: 12px;
-        
+
         @media only screen and (max-width: 1024px) {
             height: 100%;
         }

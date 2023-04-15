@@ -12,10 +12,11 @@ type SetAmountProps = {
         error: boolean;
         data: string | null;
     };
+    amount: string;
+    setAmount: (amount: string) => void;
 };
 export const SetAmount = (props: SetAmountProps) => {
-    const { balance } = props;
-    const [amount, setAmount] = useState('0.00');
+    const { balance, amount, setAmount } = props;
 
     const onSetAmount = (value: number | null) => {
         const balanceAmount = balanceFormatter(balance.data) ?? 0;
@@ -52,7 +53,7 @@ export const SetAmount = (props: SetAmountProps) => {
         <Stack className="set_amount">
             <div>
                 <Typography variant="h3">Amounts</Typography>
-                <Typography variant="h6">How much would you like to lock up your ETH?</Typography>
+                <Typography variant="h6">How much would you like to lock up your MATIC?</Typography>
             </div>
             <Stack>
                 <TextField
@@ -61,16 +62,16 @@ export const SetAmount = (props: SetAmountProps) => {
                     autoComplete="off"
                     InputProps={{
                         startAdornment: <IconEthTextField width={70} height={70} />,
-                        endAdornment: <Typography variant="h4">ETH</Typography>,
+                        endAdornment: <Typography variant="h4">MATIC</Typography>,
                     }}
                     value={amount}
                     onChange={onChangeTextField}
                 />
-                <Typography variant="h6">Your Balance {balanceFormatter(balance.data)} ETH</Typography>
+                <Typography variant="h6">Your Balance {balanceFormatter(balance.data)} MATIC</Typography>
                 <Stack className="button_group">
-                    <Button onClick={() => onSetAmount(1)}>1.0 ETH 😇</Button>
-                    <Button onClick={() => onSetAmount(0.5)}>0.5 ETH ☺️</Button>
-                    <Button onClick={() => onSetAmount(0.1)}>0.1 ETH 😉</Button>
+                    <Button onClick={() => onSetAmount(1)}>1,000 MATIC 😇</Button>
+                    <Button onClick={() => onSetAmount(0.5)}>500 MATIC ☺️</Button>
+                    <Button onClick={() => onSetAmount(0.1)}>100 MATIC 😉</Button>
                     <Button onClick={() => onSetAmount(null)}>MAX 🔥</Button>
                 </Stack>
                 {balance.loading && <Loading />}

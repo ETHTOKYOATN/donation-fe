@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { Stack as MuiStack, Typography as MuiTypography } from '@mui/material';
+import { Stack as MuiStack, Typography as MuiTypography, TextField as MuiTextField } from '@mui/material';
 
 export const Stack = styled(MuiStack)(
     ({ theme }) => `
@@ -36,7 +36,13 @@ export const Typography = styled(MuiTypography)(
     ({ theme }) => `
     color: ${theme.palette.primary.main};
     text-align: center;
-
     margin: 12px 0;
+`,
+);
+
+export const TextField = styled(MuiTextField)(
+    ({ theme }) => `
+    width: 80%;
+    overflow: visible
 `,
 );

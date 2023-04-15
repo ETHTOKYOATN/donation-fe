@@ -120,7 +120,7 @@ export const mintNft = () => (dispatch: Dispatch<nftActionType>, getState: () =>
     dispatch(mintNFTPending());
 
     return new Promise(async (resolve, reject) => {
-        await mintingNFT()
+        await mintingNFT(30)
             .then((res) => {
                 dispatch(mintNFTSuccess(res));
                 resolve(res);

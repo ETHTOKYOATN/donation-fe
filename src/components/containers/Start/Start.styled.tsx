@@ -38,10 +38,12 @@ export const Button = styled(MuiButton)(
         box-shadow: 0px 8px 0px ${alpha(theme.palette.primary.main, 0.6)};
         border-radius: 55px;
         
+        
         :hover {
             background: ${alpha(theme.palette.primary.main, 0.8)};
         }
     }
+
 `,
 );
 

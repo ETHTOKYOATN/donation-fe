@@ -16,6 +16,7 @@ export const FloatSelectBox = styled(MuiBox, {
     background-color: ${color};
     border: 3px solid ${color};
     box-shadow: 0 8px 0 ${alpha(color, 0.6)};
+    cursor: pointer;
 
     :hover {
         transform: translateY(-5px);
